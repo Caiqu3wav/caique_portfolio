@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #292929;
+}
+
+body {
+  background-color: var(--background);
+}
+
+
+a{
+  color: #cc0000
+}
