@@ -15,7 +15,7 @@ interface PlayerState {
   addTracksAndRemove: (tracks: Beat[]) => void;
   playlistRemoveAll: () => void;
   toggleMute: () => void;
-  togglePlay: () => void;
+  togglePlay: (force?: boolean) => void;
   togglePlaylist: (track: Beat) => void; 
   toggleRandom: () => void;
   playTrack: (track: Beat) => void;
@@ -44,13 +44,25 @@ const usePlayerStore = create<PlayerState>((set, get) => ({
     const newTracks = tracks.filter((track) => !state.playlist.some((t) => t.id === track.id));
     return { playlist: [...state.playlist, ...newTracks] };
 }),
-  playTrack: (track) => {
-    set((state) => {
-      if (!state.playlist.some((t) => t.id === track.id)) {
-        return { playlist: [...state.playlist, track], currentTrack: track, isPlaying: true };
-      }
-      return { currentTrack: track, isPlaying: true };
-    });
+playTrack: (track) => {
+  set((state) => {
+    const isTrackNew = !state.playlist.some((t) => t.id === track.id);
+
+    if (isTrackNew) {
+      return {
+        playlist: [...state.playlist, track],
+        currentTrack: track,
+        isPlaying: true,
+        progress: 0,
+        duration: 0
+      };
+    }
+
+    return { currentTrack: track, isPlaying: true };
+  });
+
+  // Força o player a tocar
+  get().togglePlay(true);
 },
   playNextTrack: () => {
     const { playlist, currentTrack, isRandom } = get();
@@ -76,8 +88,10 @@ const usePlayerStore = create<PlayerState>((set, get) => ({
   toggleMute() {
       set((state) => ({ isMuted: !state.isMuted }))
   },
-  togglePlay() {
-      set((state) => ({ isPlaying: !state.isPlaying }))
+  togglePlay: (forcePlay?: boolean) => {
+    set((state) => ({
+      isPlaying: forcePlay !== undefined ? forcePlay : !state.isPlaying,
+    }));
   },
   togglePlaylist: (track) => set((state) => {
     const isTrackInPlaylist = state.playlist.some((t) => t.id === track.id)
@@ -90,8 +104,8 @@ const usePlayerStore = create<PlayerState>((set, get) => ({
   toggleRandom() {
       set((state) => ({ isRandom: !state.isRandom }))
   },
-  addTracksAndRemove: (tracks) => set((state) => ({ playlist: [...tracks] })),
-  playlistRemoveAll: () => set((state) => ({playlist: []}))
+  addTracksAndRemove: (tracks) => set(() => ({ playlist: [...tracks] })),
+  playlistRemoveAll: () => set(() => ({playlist: []}))
 }));
 
 export default usePlayerStore;

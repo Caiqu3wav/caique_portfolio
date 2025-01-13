@@ -1,23 +1,6 @@
-
 export interface Beat {
-    id: string;
+    id: number;
     name: string;
-    album_img: string;
+    img: string;
     audio: string;
-    genres: string[];
-    dataLnc: string;
-  }
-
- export interface ModalProps  {
-    closeModal: () => void;
-    isOpen: boolean;
-    audioRef: any
-  }
-
-  export interface ModalAlbumProps  {
-    closeModal: () => void; 
-    isOpen: boolean;
-    album: Album;
-    beats: Beat[];
-    playAlbum: () => void;
   }

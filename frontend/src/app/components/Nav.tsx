@@ -8,7 +8,11 @@ export default function Nav() {
       <ul className='flex gap-4 '>
         <li><Link className='text-white' href='/'>Home</Link></li>
         <li><Link className='text-white' href='/about'>About</Link></li>
-        <li className='flex items-center'><a href=''><IoLogoWhatsapp size={30} className='text-green-500'/></a></li>
+        <li className='flex items-center'>
+          <a href='https://wa.me/5512996246050' target='_blank' rel="noopener noreferrer">
+        <IoLogoWhatsapp size={30} className='text-green-500'/>
+        </a>
+        </li>
       </ul>
     </nav>
   )

@@ -1,39 +1,47 @@
 export const musics = [
     {
         id: 1,
-        name: "Visions",
-        artist: "Deicide",
-        img: "/assets/beats/visions.png"
+        name: "Galaxy",
+        img: "/assets/img_beats/galaxy.webp",
+        audio: "/assets/beats/galaxy(142bpm)prod.deicide.mp3"
     },
     {
         id: 2,
-        name: "Venus",
+        name: "Island",
         artist: "Deicide",
-        img: "/assets/beats/venus.png"
+        img: "/assets/img_beats/island.png",
+        audio: "/assets/beats/island(147bpm)prod.deicide.mp3"
     },
-    {
+     {
         id: 3,
-        name: "Lunar",
-        artist: "Deicide",
-        img: "/assets/beats/lunar.webp"
+        name: "Naturalism",
+        img: "/assets/img_beats/naturalism.jpg",
+        audio: "/assets/beats/(acoustic)naturalism(140bpm)prod.deicide.mp3"
     },
     {
         id: 4,
-        name: "Naturalism",
-        artist: "Deicide",
-        img: "/assets/beats/naturalism.jpg"
+        name: "Dopamine",
+        img: "/assets/img_beats/dopamine.png",
+        audio: "/assets/beats/dopamine(140bpm) Eb prod.deicide.mp3"
     },
     {
         id: 5,
-        name: "Island",
+        name: "Visions",
         artist: "Deicide",
-        img: "/assets/beats/island.png"
+        img: "/assets/img_beats/visions.webp",
+        audio: "/assets/beats/visions(160bpm)prod.deicide.mp3"
     },
     {
         id: 6,
-        name: "Maybe u",
-        artist: "Deicide",
-        img: "/assets/beats/maybe u.jpg"
+        name: "Venture",
+        img: "/assets/img_beats/venture.jpg",
+        audio: "/assets/beats/(dark)venture(147bpm)prod.deicide.mp3"
+    },
+    {
+        id: 7,
+        name: "Away from me",
+        img: "/assets/img_beats/awayfromme.jpg",
+        audio: "/assets/beats/away from me(158bpm)prod.deicide.mp3"
     },
 ];
 
@@ -48,9 +56,9 @@ export const projects = [
     },
     {
         id: 2,
-        name: 'Do NOW',
-        descr: 'App gerenciador de tarefas dinâmico',
-        img: '/assets/projectsimg/donow.png',
+        name: 'Cryptogen',
+        descr: 'Marketplace Web 3 de NFTs',
+        img: '/assets/projectsimg/cryptogen.png',
         link: 'https://donow-task-manager.vercel.app'
     },
     {
